@@ -14,16 +14,20 @@ export default async function handler(req, res) {
         if (ext.heart) totalCents += 2490;
         if (ext.cause) totalCents += 5890;
 
-        const apiKey = process.env.AXIS_API_KEY; // 0b006782-a736-42e6-8945-e89816e7d4de
+        // Limpa qualquer espaço invisível que possa ter vindo da Vercel
+        const apiKey = process.env.AXIS_API_KEY ? process.env.AXIS_API_KEY.trim() : "";
 
-        // CHAMADA COM FORMATO DE CHAVE DIRETA (Sem Basic, sem Base64)
+        if (!apiKey) {
+            return res.status(500).json({ error: "Chave AXIS_API_KEY não encontrada na Vercel" });
+        }
+
+        // CHAMADA DIRETA AXIS BANKING
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
             method: 'POST',
             headers: { 
-                'Authorization': apiKey,        // Algumas versões usam a chave pura
-                'x-api-key': apiKey,            // Outras usam este header
-                'api-key': apiKey,              // E outras este
-                'Content-Type': 'application/json'
+                'Authorization': apiKey,    // ENVIANDO A CHAVE PURA (Sem Basic/Bearer)
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 name: pData.nome || "Doador",
@@ -38,11 +42,11 @@ export default async function handler(req, res) {
         const pixData = await axisRes.json();
 
         if (!axisRes.ok) {
-            console.error("FALHA CRÍTICA AXIS:", pixData);
+            console.error("Erro Axis:", pixData);
             return res.status(401).json({ 
                 success: false, 
-                message: "A Axis recusou a conexão. Chave ou Permissão inválida.",
-                details: pixData 
+                message: "A Axis recusou a conexão (401)", 
+                detalhes: pixData 
             });
         }
 
