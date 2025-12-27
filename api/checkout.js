@@ -2,8 +2,6 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Apenas POST' });
 
     const { personalData, amountBase, extras, utms } = req.body;
-    
-    // ID APENAS COM NÚMEROS (Sem o VAK-)
     const orderId = `${Date.now()}`; 
 
     let totalCents = Math.round(parseFloat(amountBase.replace('.', '').replace(',', '.')) * 100);
@@ -26,23 +24,29 @@ export default async function handler(req, res) {
                 cpf: personalData.cpf.replace(/\D/g, ''),
                 amount: totalCents,
                 paymentMethod: "PIX",
-                external_id: orderId // Aqui ele enviará apenas os números
+                external_id: orderId 
             })
         });
 
         const pixData = await axisRes.json();
 
-        // RESPOSTA PARA O SITE
+        // >>> ISSO VAI MOSTRAR O ERRO NO PAINEL DA VERCEL <<<
+        console.log("RESPOSTA COMPLETA DA AXIS:", JSON.stringify(pixData));
+
+        if (!axisRes.ok) {
+            return res.status(400).json({ success: false, error: "Erro na Axis", details: pixData });
+        }
+
         return res.status(200).json({
             success: true,
             qrcode: pixData.pix_qrcode || pixData.qrcode_url,
             copyPaste: pixData.pix_copy_and_paste || pixData.copy_paste,
-            axisId: pixData.id,
-            orderId: orderId, // Retorna o ID numérico para a tela
+            orderId: orderId,
             totalAmount: totalCents
         });
 
     } catch (error) {
-        return res.status(500).json({ success: false, error: "Erro interno" });
+        console.error("ERRO NO CÓDIGO:", error);
+        return res.status(500).json({ success: false, error: error.message });
     }
 }
