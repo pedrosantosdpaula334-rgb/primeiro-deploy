@@ -14,22 +14,15 @@ export default async function handler(req, res) {
         if (ext.heart) totalCents += 2490;
         if (ext.cause) totalCents += 5890;
 
-        const apiKey = process.env.AXIS_API_KEY; // 0b006782-a736-42e6-8945-e89816e7d4de
+        const apiKey = process.env.AXIS_API_KEY;
 
-        // LOG DE SEGURANÇA: Verifique isso nos logs da Vercel
-        if (!apiKey) {
-            console.error("ERRO: AXIS_API_KEY não configurada na Vercel!");
-        } else {
-            console.log("Iniciando transação com a chave final: " + apiKey.substring(0, 5) + "...");
-        }
-
-        // Formato Basic Auth padrão Axis (Chave:Vazio)
-        const authAxis = Buffer.from(apiKey + ":").toString('base64');
+        // Autenticação oficial Axis Banking (UUID:Vazio convertido para Base64)
+        const authBase64 = Buffer.from(apiKey + ":").toString('base64');
 
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
             method: 'POST',
             headers: { 
-                'Authorization': 'Basic ' + authAxis,
+                'Authorization': 'Basic ' + authBase64,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -45,12 +38,8 @@ export default async function handler(req, res) {
         const pixData = await axisRes.json();
 
         if (!axisRes.ok) {
-            console.error("Resposta de Erro da Axis:", pixData);
-            return res.status(axisRes.status).json({ 
-                success: false, 
-                message: "A Axis Banking recusou a transação (401)", 
-                detalhes: pixData 
-            });
+            console.error("LOG DE ERRO DO BANCO:", pixData);
+            return res.status(axisRes.status).json({ success: false, error: "Acesso Negado (401)", msg: pixData.message });
         }
 
         return res.status(200).json({
@@ -62,7 +51,6 @@ export default async function handler(req, res) {
         });
 
     } catch (error) {
-        console.error("Erro no Servidor:", error.message);
         return res.status(500).json({ success: false, error: error.message });
     }
 }
