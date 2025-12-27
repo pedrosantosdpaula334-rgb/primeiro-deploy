@@ -6,7 +6,7 @@ export default async function handler(req, res) {
         const pData = personalData || {};
         const orderId = `${Date.now()}`; 
 
-        let amountStr = (amountBase || "0,00").replace('.', '').replace(',', '.');
+        let amountStr = (amountBase || "30,00").replace('.', '').replace(',', '.');
         let totalCents = Math.round(parseFloat(amountStr) * 100);
         
         const ext = extras || {};
@@ -15,9 +15,9 @@ export default async function handler(req, res) {
         if (ext.cause) totalCents += 5890;
 
         const apiKey = process.env.AXIS_API_KEY;
-        if (!apiKey) return res.status(500).json({ error: "Chave não configurada na Vercel" });
+        if (!apiKey) return res.status(500).json({ error: "Chave AXIS_API_KEY não encontrada" });
 
-        // TENTATIVA 1: Formato padrão Basic Auth (Token:Vazio)
+        // FORMATO DE AUTENTICAÇÃO HASH-PAY/AXIS
         const authAxis = Buffer.from(apiKey + ":").toString('base64');
 
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
@@ -38,14 +38,9 @@ export default async function handler(req, res) {
 
         const pixData = await axisRes.json();
 
-        // Se der 401 de novo, o log vai nos mostrar se a chave foi lida
         if (!axisRes.ok) {
-            console.error("ERRO AXIS 401/400:", pixData);
-            return res.status(axisRes.status).json({ 
-                success: false, 
-                message: "A Axis recusou sua Chave de API. Verifique a Vercel.",
-                debug: pixData 
-            });
+            console.error("Erro Axis:", pixData);
+            return res.status(401).json({ success: false, error: "Axis recusou", details: pixData });
         }
 
         return res.status(200).json({
