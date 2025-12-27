@@ -9,13 +9,20 @@ export default async function handler(req, res) {
     if (extras.heart) totalCents += 2490;
     if (extras.cause) totalCents += 5890;
 
+    // Pega a chave e garante que ela existe
+    const apiKey = process.env.AXIS_API_KEY;
+    if (!apiKey) {
+        return res.status(500).json({ success: false, error: "Chave AXIS_API_KEY não configurada na Vercel" });
+    }
+
     try {
-        const authAxis = Buffer.from(`${process.env.AXIS_API_KEY}:`).toString('base64');
+        // Criando a autenticação sem usar crases para evitar erro de digitação
+        const authAxis = Buffer.from(apiKey + ":").toString('base64');
 
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
             method: 'POST',
             headers: { 
-                'Authorization': `Basic ${authAxis}`,
+                'Authorization': 'Basic ' + authAxis,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -30,11 +37,9 @@ export default async function handler(req, res) {
 
         const pixData = await axisRes.json();
 
-        // >>> ISSO VAI MOSTRAR O ERRO NO PAINEL DA VERCEL <<<
-        console.log("RESPOSTA COMPLETA DA AXIS:", JSON.stringify(pixData));
-
+        // Se a Axis retornar erro, o status não será 200
         if (!axisRes.ok) {
-            return res.status(400).json({ success: false, error: "Erro na Axis", details: pixData });
+            return res.status(axisRes.status).json({ success: false, error: "Erro na Axis", details: pixData });
         }
 
         return res.status(200).json({
@@ -46,7 +51,6 @@ export default async function handler(req, res) {
         });
 
     } catch (error) {
-        console.error("ERRO NO CÓDIGO:", error);
-        return res.status(500).json({ success: false, error: error.message });
+        return res.status(500).json({ success: false, error: "Erro interno: " + error.message });
     }
 }
