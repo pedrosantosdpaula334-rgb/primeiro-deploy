@@ -14,16 +14,17 @@ export default async function handler(req, res) {
         if (ext.heart) totalCents += 2490;
         if (ext.cause) totalCents += 5890;
 
-        const apiKey = process.env.AXIS_API_KEY;
-        if (!apiKey) return res.status(500).json({ error: "Chave AXIS_API_KEY não encontrada" });
+        const apiKey = process.env.AXIS_API_KEY; // Sua chave: 0b006782-a736-42e6-8945-e89816e7d4de
 
-        // FORMATO DE AUTENTICAÇÃO HASH-PAY/AXIS
-        const authAxis = Buffer.from(apiKey + ":").toString('base64');
+        // Gerando o token Basic Auth corretamente
+        const authBase64 = Buffer.from(apiKey + ":").toString('base64');
 
+        // ENDPOINT HASHPAY / AXIS V2
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
             method: 'POST',
             headers: { 
-                'Authorization': 'Basic ' + authAxis,
+                'Authorization': 'Basic ' + authBase64,
+                'api-key': apiKey, // Algumas versões da HashPay exigem este header extra
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -39,8 +40,12 @@ export default async function handler(req, res) {
         const pixData = await axisRes.json();
 
         if (!axisRes.ok) {
-            console.error("Erro Axis:", pixData);
-            return res.status(401).json({ success: false, error: "Axis recusou", details: pixData });
+            console.error("Erro retornado pela HashPay:", pixData);
+            return res.status(axisRes.status).json({ 
+                success: false, 
+                message: "A HashPay recusou a conexão", 
+                detalhes: pixData 
+            });
         }
 
         return res.status(200).json({
