@@ -1,39 +1,25 @@
 export default async function handler(req, res) {
-    // Garante que é um POST
     if (req.method !== 'POST') return res.status(405).json({ error: 'Apenas POST' });
 
     try {
         const { personalData, amountBase, extras, utms } = req.body;
-        
-        // Proteção contra dados nulos
         const pData = personalData || {};
-        const pNome = pData.nome || "Doador";
-        const pEmail = pData.email || "doador@email.com";
-        const pCpf = (pData.cpf || "00000000000").replace(/\D/g, '');
-        const pZap = (pData.whatsapp || "").replace(/\D/g, '');
-
-        // ID numérico
         const orderId = `${Date.now()}`; 
 
-        // Tratamento do valor
         let amountStr = (amountBase || "0,00").replace('.', '').replace(',', '.');
         let totalCents = Math.round(parseFloat(amountStr) * 100);
         
-        // Soma extras
         const ext = extras || {};
         if (ext.luck) totalCents += 1099;
         if (ext.heart) totalCents += 2490;
         if (ext.cause) totalCents += 5890;
 
         const apiKey = process.env.AXIS_API_KEY;
-        if (!apiKey) {
-            console.error("ERRO: AXIS_API_KEY não encontrada nas variáveis da Vercel");
-            return res.status(500).json({ error: "Configuração ausente na Vercel" });
-        }
+        if (!apiKey) return res.status(500).json({ error: "Chave não configurada na Vercel" });
 
+        // TENTATIVA 1: Formato padrão Basic Auth (Token:Vazio)
         const authAxis = Buffer.from(apiKey + ":").toString('base64');
 
-        // CHAMADA AXIS
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
             method: 'POST',
             headers: { 
@@ -41,9 +27,9 @@ export default async function handler(req, res) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: pNome,
-                email: pEmail,
-                cpf: pCpf,
+                name: pData.nome || "Doador",
+                email: pData.email || "doador@email.com",
+                cpf: (pData.cpf || "").replace(/\D/g, ''),
                 amount: totalCents,
                 paymentMethod: "PIX",
                 external_id: orderId 
@@ -51,10 +37,15 @@ export default async function handler(req, res) {
         });
 
         const pixData = await axisRes.json();
-        console.log("Resposta da Axis:", pixData);
 
+        // Se der 401 de novo, o log vai nos mostrar se a chave foi lida
         if (!axisRes.ok) {
-            return res.status(400).json({ success: false, message: "Banco recusou", details: pixData });
+            console.error("ERRO AXIS 401/400:", pixData);
+            return res.status(axisRes.status).json({ 
+                success: false, 
+                message: "A Axis recusou sua Chave de API. Verifique a Vercel.",
+                debug: pixData 
+            });
         }
 
         return res.status(200).json({
@@ -66,7 +57,6 @@ export default async function handler(req, res) {
         });
 
     } catch (error) {
-        console.error("CRASH NO CODIGO:", error.message);
-        return res.status(500).json({ success: false, error: "Erro interno", msg: error.message });
+        return res.status(500).json({ success: false, error: error.message });
     }
 }
