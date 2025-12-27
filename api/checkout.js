@@ -2,7 +2,7 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Apenas POST' });
 
     try {
-        const { personalData, amountBase, extras, utms } = req.body;
+        const { personalData, amountBase, extras } = req.body;
         const pData = personalData || {};
         const orderId = `${Date.now()}`; 
 
@@ -14,15 +14,15 @@ export default async function handler(req, res) {
         if (ext.heart) totalCents += 2490;
         if (ext.cause) totalCents += 5890;
 
-        const apiKey = process.env.AXIS_API_KEY;
+        const apiKey = process.env.AXIS_API_KEY; // 0b006782-a736-42e6-8945-e89816e7d4de
 
-        // Autenticação oficial Axis Banking (UUID:Vazio convertido para Base64)
-        const authBase64 = Buffer.from(apiKey + ":").toString('base64');
-
+        // CHAMADA COM FORMATO DE CHAVE DIRETA (Sem Basic, sem Base64)
         const axisRes = await fetch('https://api.axisbanking.com.br/transactions/v2/purchase', {
             method: 'POST',
             headers: { 
-                'Authorization': 'Basic ' + authBase64,
+                'Authorization': apiKey,        // Algumas versões usam a chave pura
+                'x-api-key': apiKey,            // Outras usam este header
+                'api-key': apiKey,              // E outras este
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -38,8 +38,12 @@ export default async function handler(req, res) {
         const pixData = await axisRes.json();
 
         if (!axisRes.ok) {
-            console.error("LOG DE ERRO DO BANCO:", pixData);
-            return res.status(axisRes.status).json({ success: false, error: "Acesso Negado (401)", msg: pixData.message });
+            console.error("FALHA CRÍTICA AXIS:", pixData);
+            return res.status(401).json({ 
+                success: false, 
+                message: "A Axis recusou a conexão. Chave ou Permissão inválida.",
+                details: pixData 
+            });
         }
 
         return res.status(200).json({
